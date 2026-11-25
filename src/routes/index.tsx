@@ -86,7 +86,8 @@ const [day, setDay] = useState<number | null>(
             {movie ? (
               showMovie ? (<div className="reveal-in">
               <>
-                <img src={movie.poster ?? posterExample} alt={`Poster for ${movie.title}`} width={768} height={1152} className="movie-poster mx-auto" onError={(e) => { if (!e.currentTarget.src.endsWith(posterExample)) e.currentTarget.src = posterExample; }} />
+                <img src={movie.poster ? import.meta.env.BASE_URL + movie.poster.replace(/^\//, "") : posterExample}
+ alt={`Poster for ${movie.title}`} width={768} height={1152} className="movie-poster mx-auto" onError={(e) => { if (!e.currentTarget.src.endsWith(posterExample)) e.currentTarget.src = posterExample; }} />
                 <h2 className="font-display text-2xl md:text-3xl text-foreground mt-3">{movie.title}</h2>
                 <p className="mt-3 text-sm text-muted-foreground">Watch on <span className="streaming-badge">{movie.where}</span></p>
               </>
