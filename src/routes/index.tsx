@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
     ],
   }),
 loader: async () => {
-  const d = new Date(2026, 11, 24); // December 24 for testing
+  const d = new Date(); // December 24 for testing
   return {
     today: d.getMonth() === 11 ? Math.min(d.getDate(), 24) : 0,
   };
